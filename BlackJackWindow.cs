@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using BlackJackDealerSimulator3000.Classes;
 
 namespace BlackJackDealerSimulator3000
 {
@@ -9,16 +10,7 @@ namespace BlackJackDealerSimulator3000
             InitializeComponent();
         }
 
-        //Loads the window for the whole game.
-        private void BlackJackWindow_Load(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Loaded");
-        }
-
-        //Test
-        private void Test_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Clicked");
-        }
+        Card card1 = new Card(Rank.ACE, Suit.SPADES);
+        Card card2 = new Card(Rank.TWO, Suit.SPADES);
     }
 }
