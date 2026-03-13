@@ -28,37 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            testButton = new Button();
+            MainTitle = new Label();
+            StartButton = new Button();
             SuspendLayout();
-            // 
-            // testButton
-            // 
-            testButton.BackColor = Color.Transparent;
-            testButton.Location = new Point(192, 127);
-            testButton.Name = "testButton";
-            testButton.Size = new Size(197, 63);
-            testButton.TabIndex = 0;
-            testButton.Text = "click me";
-            testButton.UseVisualStyleBackColor = false;
-            testButton.Click += Test_Click;
-            // 
+
+            // MainTitle
+            MainTitle.Anchor = AnchorStyles.None;
+            MainTitle.AutoSize = true;
+            MainTitle.Font = new Font("Segoe UI", 50F);
+            MainTitle.ForeColor = Color.White;
+            MainTitle.Location = new Point(250, 50);
+            MainTitle.Name = "MainTitle";
+            MainTitle.Size = new Size(891, 133);
+            MainTitle.TabIndex = 0;
+            MainTitle.Text = "BlackJackSimulator";
+
+            // StartButton
+            StartButton.BackColor = Color.White;
+            StartButton.Font = new Font("Segoe UI", 12F);
+            StartButton.Location = new Point(648, 257);
+            StartButton.Name = "StartButton";
+            StartButton.Size = new Size(112, 66);
+            StartButton.TabIndex = 1;
+            StartButton.Text = "Start";
+            StartButton.UseVisualStyleBackColor = false;
+            StartButton.Click += StartButton_Click;
+
             // BlackJackWindow
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Green;
-            ClientSize = new Size(1220, 450);
-            Controls.Add(testButton);
+            AutoSize = true;
+            BackColor = Color.ForestGreen;
+            ClientSize = new Size(1382, 516);
+            Controls.Add(StartButton);
+            Controls.Add(MainTitle);
             Name = "BlackJackWindow";
-            Tag = "";
-            Text = "BlackJack Dealer 3000";
             WindowState = FormWindowState.Maximized;
             Load += BlackJackWindow_Load;
             ResumeLayout(false);
+            PerformLayout();
+
         }
 
         #endregion
 
-        private Button testButton;
+        private Label MainTitle;
+        private Button StartButton;
     }
 }
