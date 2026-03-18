@@ -30,9 +30,11 @@
         {
             MainTitle = new Label();
             StartButton = new Button();
+            ExitButton = new Button();
             SuspendLayout();
-
+            // 
             // MainTitle
+            // 
             MainTitle.Anchor = AnchorStyles.None;
             MainTitle.AutoSize = true;
             MainTitle.Font = new Font("Segoe UI", 50F);
@@ -42,8 +44,9 @@
             MainTitle.Size = new Size(891, 133);
             MainTitle.TabIndex = 0;
             MainTitle.Text = "BlackJackSimulator";
-
+            // 
             // StartButton
+            // 
             StartButton.BackColor = Color.White;
             StartButton.Font = new Font("Segoe UI", 12F);
             StartButton.Location = new Point(648, 257);
@@ -53,11 +56,25 @@
             StartButton.Text = "Start";
             StartButton.UseVisualStyleBackColor = false;
             StartButton.Click += StartButton_Click;
-
+            // 
+            // ExitButton
+            // 
+            ExitButton.BackColor = Color.White;
+            ExitButton.Font = new Font("Segoe UI", 12F);
+            ExitButton.Location = new Point(648, 329);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(112, 66);
+            ExitButton.TabIndex = 1;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = false;
+            ExitButton.Click += ExitButton_Click;
+            // 
             // BlackJackWindow
+            // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(ExitButton);
             Controls.Add(StartButton);
             Controls.Add(MainTitle);
             Name = "BlackJackWindow";
@@ -72,5 +89,6 @@
 
         private Label MainTitle;
         private Button StartButton;
+        private Button ExitButton;
     }
 }
