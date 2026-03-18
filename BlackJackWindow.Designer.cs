@@ -38,7 +38,7 @@ namespace BlackJackDealerSimulator3000
             MainTitle.AutoSize = true;
             MainTitle.Font = new Font("Segoe UI", 50F);
             MainTitle.ForeColor = Color.White;
-            MainTitle.Location = new Point(250, 50);
+            MainTitle.Location = new Point(130, 12);
             MainTitle.Name = "MainTitle";
             MainTitle.Size = new Size(891, 133);
             MainTitle.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace BlackJackDealerSimulator3000
             // 
             StartButton.BackColor = Color.White;
             StartButton.Font = new Font("Segoe UI", 12F);
-            StartButton.Location = new Point(648, 257);
+            StartButton.Location = new Point(12, 76);
             StartButton.Name = "StartButton";
             StartButton.Size = new Size(112, 66);
             StartButton.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace BlackJackDealerSimulator3000
             // 
             ExitButton.BackColor = Color.White;
             ExitButton.Font = new Font("Segoe UI", 12F);
-            ExitButton.Location = new Point(648, 329);
+            ExitButton.Location = new Point(12, 135);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(112, 66);
             ExitButton.TabIndex = 1;

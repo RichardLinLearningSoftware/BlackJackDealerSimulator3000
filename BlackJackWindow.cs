@@ -52,8 +52,8 @@ namespace BlackJackDealerSimulator3000
             Application.Exit();
         }
         private void MenuButton_Click(object sender, EventArgs e)
-        {        
-            if(MenuButton.Text == "Menu")
+        {
+            if (MenuButton.Text == "Menu")
             {
                 MenuButton.Text = "Close";
                 ExitButton.Show();
