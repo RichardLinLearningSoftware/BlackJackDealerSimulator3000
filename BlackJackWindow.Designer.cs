@@ -1,4 +1,5 @@
-﻿namespace BlackJackDealerSimulator3000
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+namespace BlackJackDealerSimulator3000
 {
     partial class BlackJackWindow
     {
@@ -6,7 +7,6 @@
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         ///  Clean up any resources being used.
         /// </summary>
@@ -19,9 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
-
         /// <summary>
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
@@ -31,6 +29,7 @@
             MainTitle = new Label();
             StartButton = new Button();
             ExitButton = new Button();
+            MenuButton = new Button();
             SuspendLayout();
             // 
             // MainTitle
@@ -69,11 +68,24 @@
             ExitButton.UseVisualStyleBackColor = false;
             ExitButton.Click += ExitButton_Click;
             // 
+            // MenuButton
+            // 
+            MenuButton.BackColor = Color.White;
+            MenuButton.Font = new Font("Segoe UI", 12F);
+            MenuButton.Location = new Point(12, 12);
+            MenuButton.Name = "MenuButton";
+            MenuButton.Size = new Size(112, 66);
+            MenuButton.TabIndex = 1;
+            MenuButton.Text = "Menu";
+            MenuButton.UseVisualStyleBackColor = false;
+            MenuButton.Click += MenuButton_Click;
+            // 
             // BlackJackWindow
             // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(MenuButton);
             Controls.Add(ExitButton);
             Controls.Add(StartButton);
             Controls.Add(MainTitle);
@@ -82,13 +94,14 @@
             Load += BlackJackWindow_Load;
             ResumeLayout(false);
             PerformLayout();
-
+            // 
+            // MenuButton
+            // 
         }
-
         #endregion
-
         private Label MainTitle;
         private Button StartButton;
         private Button ExitButton;
+        private Button MenuButton;
     }
 }
