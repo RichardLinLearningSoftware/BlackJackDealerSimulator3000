@@ -57,6 +57,8 @@ namespace BlackJackDealerSimulator3000.Classes
                         value = 8; break;
                     case Rank.NINE:
                         value = 9; break;
+                    case Rank.TEN:
+                        value = 10; break;
 
                     case Rank.JACK:
                     case Rank.QUEEN:

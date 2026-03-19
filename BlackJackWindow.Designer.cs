@@ -30,6 +30,7 @@ namespace BlackJackDealerSimulator3000
             StartButton = new Button();
             ExitButton = new Button();
             MenuButton = new Button();
+            Deck = new Button();
             SuspendLayout();
             // 
             // MainTitle
@@ -80,11 +81,22 @@ namespace BlackJackDealerSimulator3000
             MenuButton.UseVisualStyleBackColor = false;
             MenuButton.Click += MenuButton_Click;
             // 
+            // Deck
+            // 
+            Deck.Location = new Point(12, 207);
+            Deck.Name = "Deck";
+            Deck.Size = new Size(141, 194);
+            Deck.TabIndex = 2;
+            Deck.Text = "Deck";
+            Deck.UseVisualStyleBackColor = true;
+            Deck.Click += ShuffleDeck;
+            // 
             // BlackJackWindow
             // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(Deck);
             Controls.Add(MenuButton);
             Controls.Add(ExitButton);
             Controls.Add(StartButton);
@@ -103,5 +115,6 @@ namespace BlackJackDealerSimulator3000
         private Button StartButton;
         private Button ExitButton;
         private Button MenuButton;
+        private Button Deck;
     }
 }

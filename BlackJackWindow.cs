@@ -32,6 +32,10 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Left = 0 + (MenuButton.Width / 4);
             MenuButton.Top = 0 + (MenuButton.Height / 4);
             MenuButton.Hide();
+
+            Deck mainDeck = new Deck();
+            mainDeck.Shuffle();
+            Deck.Text = mainDeck.GetCard(0);
         }
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
@@ -63,6 +67,11 @@ namespace BlackJackDealerSimulator3000
                 MenuButton.Text = "Menu";
                 ExitButton.Hide();
             }
+        }
+
+        private void ShuffleDeck(object sender, EventArgs e)
+        {
+
         }
     }
 }
