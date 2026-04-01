@@ -6,10 +6,9 @@ namespace BlackJackDealerSimulator3000.Classes
 {
     internal class Deck
     {
-
-        Card[] cards = new Card[]
+        List<Card> cards = new List<Card>
         {
-            //Hearts
+            // Hearts
             new Card(Rank.ACE, Suit.HEARTS),
             new Card(Rank.TWO, Suit.HEARTS),
             new Card(Rank.THREE, Suit.HEARTS),
@@ -23,7 +22,7 @@ namespace BlackJackDealerSimulator3000.Classes
             new Card(Rank.JACK, Suit.HEARTS),
             new Card(Rank.QUEEN, Suit.HEARTS),
             new Card(Rank.KING, Suit.HEARTS),
-            //Diamonds
+            // Diamonds
             new Card(Rank.ACE, Suit.DIAMONDS),
             new Card(Rank.TWO, Suit.DIAMONDS),
             new Card(Rank.THREE, Suit.DIAMONDS),
@@ -37,7 +36,7 @@ namespace BlackJackDealerSimulator3000.Classes
             new Card(Rank.JACK, Suit.DIAMONDS),
             new Card(Rank.QUEEN, Suit.DIAMONDS),
             new Card(Rank.KING, Suit.DIAMONDS),
-            //Clubs
+            // Clubs
             new Card(Rank.ACE, Suit.CLUBS),
             new Card(Rank.TWO, Suit.CLUBS),
             new Card(Rank.THREE, Suit.CLUBS),
@@ -51,7 +50,7 @@ namespace BlackJackDealerSimulator3000.Classes
             new Card(Rank.JACK, Suit.CLUBS),
             new Card(Rank.QUEEN, Suit.CLUBS),
             new Card(Rank.KING, Suit.CLUBS),
-            //SPADES
+            // Spades
             new Card(Rank.ACE, Suit.SPADES),
             new Card(Rank.TWO, Suit.SPADES),
             new Card(Rank.THREE, Suit.SPADES),
@@ -74,7 +73,7 @@ namespace BlackJackDealerSimulator3000.Classes
         public void Shuffle()
         {
             Random randomNum = new Random();
-            for (int i = cards.Length - 1; i > 0; i--)
+            for (int i = cards.Count - 1; i > 0; i--)
             {
                 int x = randomNum.Next(i + 1);
                 Card temp = cards[i];

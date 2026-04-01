@@ -6,12 +6,15 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace BlackJackDealerSimulator3000
 {
     //Variables here
+
     public partial class BlackJackWindow : Form
     {
         public BlackJackWindow()
         {
             InitializeComponent();
         }
+        //Created a deck
+        Deck mainDeck = new Deck();
 
         private void BlackJackWindow_Load(object sender, EventArgs e)
         {
@@ -33,9 +36,12 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Top = 0 + (MenuButton.Height / 4);
             MenuButton.Hide();
 
-            Deck mainDeck = new Deck();
-            mainDeck.Shuffle();
-            Deck.Text = mainDeck.GetCard(0);
+            Deck.Left = 0 + (this.ClientSize.Width - Deck.Width - 15);
+            Deck.Top = 0 + (this.ClientSize.Height - Deck.Height - 15);
+            //Deck.Text = mainDeck.GetCard(0);
+            Deck.Text = "Deck";
+            Deck.Hide();
+            //Deck.Text = "Card deck";
         }
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
@@ -71,7 +77,8 @@ namespace BlackJackDealerSimulator3000
 
         private void ShuffleDeck(object sender, EventArgs e)
         {
-
+            mainDeck.Shuffle();
+            //Deck.Text = mainDeck.GetCard(0);
         }
     }
 }
