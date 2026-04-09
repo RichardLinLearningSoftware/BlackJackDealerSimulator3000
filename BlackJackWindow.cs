@@ -36,12 +36,18 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Top = 0 + (MenuButton.Height / 4);
             MenuButton.Hide();
 
+            //Deck
             Deck.Left = 0 + (this.ClientSize.Width - Deck.Width - 15);
             Deck.Top = 0 + (this.ClientSize.Height - Deck.Height - 15);
             //Deck.Text = mainDeck.GetCard(0);
             Deck.Text = "Deck";
             Deck.Hide();
             //Deck.Text = "Card deck";
+
+            //Choose 1 player button
+            //choosePlayer1.Hide();
+            choosePlayer1.Left = ((this.ClientSize.Width - choosePlayer1.Width) / 2) - (choosePlayer1.Width * 5);
+            choosePlayer1.Top = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
         }
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
@@ -79,6 +85,11 @@ namespace BlackJackDealerSimulator3000
         {
             mainDeck.Shuffle();
             //Deck.Text = mainDeck.GetCard(0);
+        }
+
+        private void choosePlayer_Click(object sender, EventArgs e, int totalPlayers)
+        {
+            System.Diagnostics.Debug.WriteLine(totalPlayers);
         }
     }
 }
