@@ -44,10 +44,14 @@ namespace BlackJackDealerSimulator3000
             Deck.Hide();
             //Deck.Text = "Card deck";
 
-            //Choose 1 player button
+            //Choose player button
             //choosePlayer1.Hide();
-            choosePlayer1.Left = ((this.ClientSize.Width - choosePlayer1.Width) / 2) - (choosePlayer1.Width * 5);
+            choosePlayer1.Left = ((this.ClientSize.Width - choosePlayer1.Width) / 2) - (choosePlayer1.Width * 3);
             choosePlayer1.Top = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
+            choosePlayer2.Left = ((this.ClientSize.Width - choosePlayer2.Width) / 2) - (choosePlayer1.Width * 2);
+            choosePlayer2.Top = (this.ClientSize.Height + choosePlayer2.Height * 2) / 2;
+            choosePlayer3.Left = ((this.ClientSize.Width - choosePlayer3.Width) / 2) - (choosePlayer1.Width * 1);
+            choosePlayer3.Top = (this.ClientSize.Height + choosePlayer3.Height * 2) / 2;
         }
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)

@@ -32,6 +32,8 @@ namespace BlackJackDealerSimulator3000
             MenuButton = new Button();
             Deck = new Button();
             choosePlayer1 = new Button();
+            choosePlayer2 = new Button();
+            choosePlayer3 = new Button();
             SuspendLayout();
             // 
             // MainTitle
@@ -102,13 +104,37 @@ namespace BlackJackDealerSimulator3000
             choosePlayer1.TabIndex = 3;
             choosePlayer1.Text = "1";
             choosePlayer1.UseVisualStyleBackColor = false;
-            choosePlayer1.Click += (sender, e) => choosePlayer_Click(sender, e, 1);
+            //choosePlayer1.Click += (sender, e) => choosePlayer_Click(sender, e, 1);
+            // 
+            // choosePlayer2
+            // 
+            choosePlayer2.BackColor = Color.White;
+            choosePlayer2.Font = new Font("Segoe UI", 12F);
+            choosePlayer2.Location = new Point(706, 225);
+            choosePlayer2.Name = "choosePlayer2";
+            choosePlayer2.Size = new Size(65, 66);
+            choosePlayer2.TabIndex = 4;
+            choosePlayer2.Text = "2";
+            choosePlayer2.UseVisualStyleBackColor = false;
+            // 
+            // choosePlayer3
+            // 
+            choosePlayer3.BackColor = Color.White;
+            choosePlayer3.Font = new Font("Segoe UI", 12F);
+            choosePlayer3.Location = new Point(777, 225);
+            choosePlayer3.Name = "choosePlayer3";
+            choosePlayer3.Size = new Size(65, 66);
+            choosePlayer3.TabIndex = 5;
+            choosePlayer3.Text = "3";
+            choosePlayer3.UseVisualStyleBackColor = false;
             // 
             // BlackJackWindow
             // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(choosePlayer3);
+            Controls.Add(choosePlayer2);
             Controls.Add(choosePlayer1);
             Controls.Add(Deck);
             Controls.Add(MenuButton);
@@ -131,5 +157,7 @@ namespace BlackJackDealerSimulator3000
         private Button MenuButton;
         private Button Deck;
         private Button choosePlayer1;
+        private Button choosePlayer2;
+        private Button choosePlayer3;
     }
 }
