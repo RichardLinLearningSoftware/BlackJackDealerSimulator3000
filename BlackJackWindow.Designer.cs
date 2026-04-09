@@ -31,6 +31,7 @@ namespace BlackJackDealerSimulator3000
             ExitButton = new Button();
             MenuButton = new Button();
             Deck = new Button();
+            choosePlayer1 = new Button();
             SuspendLayout();
             // 
             // MainTitle
@@ -91,11 +92,24 @@ namespace BlackJackDealerSimulator3000
             Deck.UseVisualStyleBackColor = true;
             Deck.Click += ShuffleDeck;
             // 
+            // choosePlayer1
+            // 
+            choosePlayer1.BackColor = Color.White;
+            choosePlayer1.Font = new Font("Segoe UI", 12F);
+            choosePlayer1.Location = new Point(635, 225);
+            choosePlayer1.Name = "choosePlayer1";
+            choosePlayer1.Size = new Size(65, 66);
+            choosePlayer1.TabIndex = 3;
+            choosePlayer1.Text = "1";
+            choosePlayer1.UseVisualStyleBackColor = false;
+            choosePlayer1.Click += (sender, e) => choosePlayer_Click(sender, e, 1);
+            // 
             // BlackJackWindow
             // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(choosePlayer1);
             Controls.Add(Deck);
             Controls.Add(MenuButton);
             Controls.Add(ExitButton);
@@ -116,5 +130,6 @@ namespace BlackJackDealerSimulator3000
         private Button ExitButton;
         private Button MenuButton;
         private Button Deck;
+        private Button choosePlayer1;
     }
 }
