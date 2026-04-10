@@ -46,25 +46,24 @@ namespace BlackJackDealerSimulator3000
 
             //Choose player button
             var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
-            int centerX = this.ClientSize.Width / 2;
-            int y = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
-            int spacing = choosePlayer1.Width;
 
             for (int i = 0; i < chooseButtons.Length; i++)
             {
                 var totalPlayer = chooseButtons[i];
                 totalPlayer.Hide();
-                totalPlayer.Left = centerX + (i - 2) * spacing;
-                totalPlayer.Top = y;
+                totalPlayer.Left = this.ClientSize.Width / 2 + (i - 2) * choosePlayer1.Width;
+                totalPlayer.Top = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
                 int playerNumber = i + 1;
                 totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
             }
         }
+
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
         {
             //Start screen elements
-            MainTitle.Hide();
+            MainTitle.Text = "Choose how many players will join the table";
+            MainTitle.Left = (this.ClientSize.Width - MainTitle.Width) / 2;
             ExitButton.Hide();
             StartButton.Hide();
 
