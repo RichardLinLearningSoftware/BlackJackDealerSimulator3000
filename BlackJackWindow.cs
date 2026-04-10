@@ -45,13 +45,20 @@ namespace BlackJackDealerSimulator3000
             //Deck.Text = "Card deck";
 
             //Choose player button
-            //choosePlayer1.Hide();
-            choosePlayer1.Left = ((this.ClientSize.Width - choosePlayer1.Width) / 2) - (choosePlayer1.Width * 3);
-            choosePlayer1.Top = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
-            choosePlayer2.Left = ((this.ClientSize.Width - choosePlayer2.Width) / 2) - (choosePlayer1.Width * 2);
-            choosePlayer2.Top = (this.ClientSize.Height + choosePlayer2.Height * 2) / 2;
-            choosePlayer3.Left = ((this.ClientSize.Width - choosePlayer3.Width) / 2) - (choosePlayer1.Width * 1);
-            choosePlayer3.Top = (this.ClientSize.Height + choosePlayer3.Height * 2) / 2;
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+            int centerX = this.ClientSize.Width / 2;
+            int y = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
+            int spacing = choosePlayer1.Width;
+
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                var totalPlayer = chooseButtons[i];
+                totalPlayer.Hide();
+                totalPlayer.Left = centerX + (i - 2) * spacing;
+                totalPlayer.Top = y;
+                int playerNumber = i + 1;
+                totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
+            }
         }
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
@@ -65,6 +72,14 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Show();
             ExitButton.Left = 0 + (ExitButton.Width / 4);
             ExitButton.Top = ExitButton.Height + (ExitButton.Height / 3);
+
+            //Choose players buttons
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                var totalPlayer = chooseButtons[i];
+                totalPlayer.Show();
+            }
         }
         //Close application button
         private void ExitButton_Click(object sender, EventArgs e)

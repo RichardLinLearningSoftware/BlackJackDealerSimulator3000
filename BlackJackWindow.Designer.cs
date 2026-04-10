@@ -34,6 +34,8 @@ namespace BlackJackDealerSimulator3000
             choosePlayer1 = new Button();
             choosePlayer2 = new Button();
             choosePlayer3 = new Button();
+            choosePlayer4 = new Button();
+            choosePlayer5 = new Button();
             SuspendLayout();
             // 
             // MainTitle
@@ -104,7 +106,6 @@ namespace BlackJackDealerSimulator3000
             choosePlayer1.TabIndex = 3;
             choosePlayer1.Text = "1";
             choosePlayer1.UseVisualStyleBackColor = false;
-            //choosePlayer1.Click += (sender, e) => choosePlayer_Click(sender, e, 1);
             // 
             // choosePlayer2
             // 
@@ -128,11 +129,35 @@ namespace BlackJackDealerSimulator3000
             choosePlayer3.Text = "3";
             choosePlayer3.UseVisualStyleBackColor = false;
             // 
+            // choosePlayer4
+            // 
+            choosePlayer4.BackColor = Color.White;
+            choosePlayer4.Font = new Font("Segoe UI", 12F);
+            choosePlayer4.Location = new Point(848, 225);
+            choosePlayer4.Name = "choosePlayer4";
+            choosePlayer4.Size = new Size(65, 66);
+            choosePlayer4.TabIndex = 6;
+            choosePlayer4.Text = "4";
+            choosePlayer4.UseVisualStyleBackColor = false;
+            // 
+            // choosePlayer5
+            // 
+            choosePlayer5.BackColor = Color.White;
+            choosePlayer5.Font = new Font("Segoe UI", 12F);
+            choosePlayer5.Location = new Point(919, 225);
+            choosePlayer5.Name = "choosePlayer5";
+            choosePlayer5.Size = new Size(65, 66);
+            choosePlayer5.TabIndex = 7;
+            choosePlayer5.Text = "5";
+            choosePlayer5.UseVisualStyleBackColor = false;
+            // 
             // BlackJackWindow
             // 
             AutoSize = true;
             BackColor = Color.ForestGreen;
             ClientSize = new Size(1382, 516);
+            Controls.Add(choosePlayer5);
+            Controls.Add(choosePlayer4);
             Controls.Add(choosePlayer3);
             Controls.Add(choosePlayer2);
             Controls.Add(choosePlayer1);
@@ -159,5 +184,7 @@ namespace BlackJackDealerSimulator3000
         private Button choosePlayer1;
         private Button choosePlayer2;
         private Button choosePlayer3;
+        private Button choosePlayer4;
+        private Button choosePlayer5;
     }
 }
