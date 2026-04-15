@@ -5,8 +5,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BlackJackDealerSimulator3000
 {
-    //Variables here
-
     public partial class BlackJackWindow : Form
     {
         public BlackJackWindow()
@@ -15,6 +13,7 @@ namespace BlackJackDealerSimulator3000
         }
         //Created a deck
         Deck mainDeck = new Deck();
+        int playersInGame = 0;
 
         private void BlackJackWindow_Load(object sender, EventArgs e)
         {
@@ -56,6 +55,9 @@ namespace BlackJackDealerSimulator3000
                 int playerNumber = i + 1;
                 totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
             }
+
+            String gameState = "start";
+            
         }
 
         //Starting button
@@ -107,7 +109,16 @@ namespace BlackJackDealerSimulator3000
 
         private void choosePlayer_Click(object sender, EventArgs e, int totalPlayers)
         {
-            System.Diagnostics.Debug.WriteLine(totalPlayers);
+            //Set players for the game
+            playersInGame = totalPlayers;
+            //Hide choose player button
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                chooseButtons[i].Hide();
+            }
+            //Hide titel
+            MainTitle.Hide();
         }
     }
 }
