@@ -5,8 +5,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BlackJackDealerSimulator3000
 {
-    //Variables here
-
     public partial class BlackJackWindow : Form
     {
         public BlackJackWindow()
@@ -15,6 +13,7 @@ namespace BlackJackDealerSimulator3000
         }
         //Created a deck
         Deck mainDeck = new Deck();
+        int playersInGame = 0;
 
         private void BlackJackWindow_Load(object sender, EventArgs e)
         {
@@ -36,18 +35,37 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Top = 0 + (MenuButton.Height / 4);
             MenuButton.Hide();
 
+            //Deck
             Deck.Left = 0 + (this.ClientSize.Width - Deck.Width - 15);
             Deck.Top = 0 + (this.ClientSize.Height - Deck.Height - 15);
             //Deck.Text = mainDeck.GetCard(0);
             Deck.Text = "Deck";
             Deck.Hide();
             //Deck.Text = "Card deck";
+
+            //Choose player button
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                var totalPlayer = chooseButtons[i];
+                totalPlayer.Hide();
+                totalPlayer.Left = this.ClientSize.Width / 2 + (i - 2) * choosePlayer1.Width;
+                totalPlayer.Top = (this.ClientSize.Height + choosePlayer1.Height * 2) / 2;
+                int playerNumber = i + 1;
+                totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
+            }
+
+            String gameState = "start";
+            
         }
+
         //Starting button
         private void StartButton_Click(object sender, EventArgs e)
         {
             //Start screen elements
-            MainTitle.Hide();
+            MainTitle.Text = "Choose how many players will join the table";
+            MainTitle.Left = (this.ClientSize.Width - MainTitle.Width) / 2;
             ExitButton.Hide();
             StartButton.Hide();
 
@@ -55,6 +73,14 @@ namespace BlackJackDealerSimulator3000
             MenuButton.Show();
             ExitButton.Left = 0 + (ExitButton.Width / 4);
             ExitButton.Top = ExitButton.Height + (ExitButton.Height / 3);
+
+            //Choose players buttons
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                var totalPlayer = chooseButtons[i];
+                totalPlayer.Show();
+            }
         }
         //Close application button
         private void ExitButton_Click(object sender, EventArgs e)
@@ -79,6 +105,20 @@ namespace BlackJackDealerSimulator3000
         {
             mainDeck.Shuffle();
             //Deck.Text = mainDeck.GetCard(0);
+        }
+
+        private void choosePlayer_Click(object sender, EventArgs e, int totalPlayers)
+        {
+            //Set players for the game
+            playersInGame = totalPlayers;
+            //Hide choose player button
+            var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
+            for (int i = 0; i < chooseButtons.Length; i++)
+            {
+                chooseButtons[i].Hide();
+            }
+            //Hide titel
+            MainTitle.Hide();
         }
     }
 }
