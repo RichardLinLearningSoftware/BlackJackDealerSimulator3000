@@ -122,7 +122,7 @@ namespace BlackJackDealerSimulator3000
             for (int i = 0; i < totalPlayers; i++)
             {
                 positionX = positionX + 105;
-                PlayerClass[i] = new Hand("Player"+ (i + 1), this);
+                PlayerClass[i] = new Hand("Player"+ (i + 1), this, mainDeck);
                 PlayerClass[i].CreatePlayer("Player"+ (i + 1), 100, 180, positionX, positionY);
             }
         }
