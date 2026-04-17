@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace BlackJackDealerSimulator3000.Classes
@@ -10,21 +11,22 @@ namespace BlackJackDealerSimulator3000.Classes
         private String playerName;
         //The player state can be hit or stand
         private String playerState = "none";
-        ArrayList hand = new ArrayList();
-        private Control parent;
+        List<Card> hand = new List<Card>
+        {
+        };
 
-        public Hand(String playerName, Control parentControl)
+        private Control parent;
+        private Deck mainDeck;
+
+        public Hand(String playerName, Control parentControl, Deck deck)
         {
             this.playerName = playerName;
             parent = parentControl;
+            mainDeck = deck;
         }
 
-        public void AddCard( Card card, bool flipCard = false)
+        public void AddCard( Card card)
         {
-            if (flipCard)
-            {
-                card.Flip();
-            }
             hand.Add(card);
         }
 
@@ -73,9 +75,10 @@ namespace BlackJackDealerSimulator3000.Classes
         }
 
         private static List<Button> createdCard = new List<Button>();
-        public void DisplayCard(int totalCards, string text = "empty")
+        public void DisplayCard(int totalCards)
         {
-            if (totalCards <= 0) return;
+            int positionX = (parent.ClientSize.Width - (105 * totalCards)) / 2;
+            Button button = new Button();
 
             foreach (var btn in createdCard)
             {
@@ -84,20 +87,37 @@ namespace BlackJackDealerSimulator3000.Classes
             }
             createdCard.Clear();
 
-            int positionX = (parent.ClientSize.Width - (105 * totalCards)) / 2;
+            //Set properties
+            button.Text = "Give card";
+            button.Size = new Size(100, 100);
+            button.Location = new Point(positionX, (parent.ClientSize.Height + 300)/2);
+            button.BackColor = Color.White;
+            button.Click += (sender, e) =>
+            {
+                if (playerState != "stand")
+                {
+                    AddCard(mainDeck.removeCard());
+                }
+                DisplayCard(hand.Count);
+            };
+            //Displays Give card button
+            parent.Controls.Add(button);
+            button.BringToFront();
+            createdCard.Add(button);
+
+            if (totalCards <= 0) return;
             for (int i = 0; i < totalCards; i++)
             {
-                Button card = new Button();
                 //Set properties
-                card.Text = text;
-                card.Size = new Size(100, 170);
-                card.Location = new Point(positionX + (i * 105), (parent.ClientSize.Height - 170) / 2);
-                card.BackColor = Color.White;
+                button.Text = hand[i].ToString();
+                button.Size = new Size(100, 170);
+                button.Location = new Point(positionX + (i * 105), (parent.ClientSize.Height - 170) / 2);
+                button.BackColor = Color.White;
 
                 //Displays cards
-                parent.Controls.Add(card);
-                card.BringToFront();
-                createdCard.Add(card);
+                parent.Controls.Add(button);
+                button.BringToFront();
+                createdCard.Add(button);
             }
         }
 
