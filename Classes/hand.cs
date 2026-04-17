@@ -11,10 +11,12 @@ namespace BlackJackDealerSimulator3000.Classes
         //The player state can be hit or stand
         private String playerState = "none";
         ArrayList hand = new ArrayList();
+        private Control parent;
 
-        public Hand(String playerName)
+        public Hand(String playerName, Control parentControl)
         {
             this.playerName = playerName;
+            parent = parentControl;
         }
 
         public void AddCard( Card card, bool flipCard = false)
@@ -49,34 +51,32 @@ namespace BlackJackDealerSimulator3000.Classes
             return "I want to Hit";
         }
 
-        public void CreatePlayer(Control parent, string text = "empty", int width = 100, int height = 100, int x = 50, int y = 50)
+        public void CreatePlayer(string text = "empty", int width = 100, int height = 100, int x = 50, int y = 50)
         {
-            System.Windows.Forms.Button player = new System.Windows.Forms.Button();
-
-            // Set properties
+            Button player = new Button();
+            //Set properties
             player.Text = text;
-            player.Location = new System.Drawing.Point(x, y);
-            player.Size = new System.Drawing.Size(width, height);
+            player.Location = new Point(x, y);
+            player.Size = new Size(width, height);
             player.BackColor = Color.White;
-            // Add click event
             player.Click += (sender, e) =>
             {
                 if (playerState != "stand")
                 {
                     player.Text = playerName + ": " + StandOrHit();
-                    DisplayCard(parent, 5);
                 }
+                DisplayCard(hand.Count);
             };
-
-            // Add button to the form
+            //Add player to the form
             parent.Controls.Add(player);
             player.BringToFront();
         }
 
-        List<Button> createdCard = new List<Button>();
-        public void DisplayCard(Control parent, int totalCards, string text = "empty")
+        private static List<Button> createdCard = new List<Button>();
+        public void DisplayCard(int totalCards, string text = "empty")
         {
-            //Removes pre existing displayer cards when the function is called again
+            if (totalCards <= 0) return;
+
             foreach (var btn in createdCard)
             {
                 parent.Controls.Remove(btn);
@@ -84,19 +84,20 @@ namespace BlackJackDealerSimulator3000.Classes
             }
             createdCard.Clear();
 
-            int positionX = (parent.ClientSize.Width - (100 * (totalCards + 1))) / 2;
-            for (int i = 0; i < totalCards; i++) {
-                positionX = positionX + 105;
-                System.Windows.Forms.Button card = new System.Windows.Forms.Button();
-                // Set properties
+            int positionX = (parent.ClientSize.Width - (105 * totalCards)) / 2;
+            for (int i = 0; i < totalCards; i++)
+            {
+                Button card = new Button();
+                //Set properties
                 card.Text = text;
-                card.Location = new System.Drawing.Point(positionX, (parent.ClientSize.Height - 170)/2);
-                card.Size = new System.Drawing.Size(100, 170);
+                card.Size = new Size(100, 170);
+                card.Location = new Point(positionX + (i * 105), (parent.ClientSize.Height - 170) / 2);
                 card.BackColor = Color.White;
-                // Add button to the form
+
+                //Displays cards
                 parent.Controls.Add(card);
-                createdCard.Add(card);
                 card.BringToFront();
+                createdCard.Add(card);
             }
         }
 
