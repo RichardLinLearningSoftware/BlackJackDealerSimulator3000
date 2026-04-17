@@ -13,8 +13,6 @@ namespace BlackJackDealerSimulator3000
         }
         //Created a deck
         Deck mainDeck = new Deck();
-        int playersInGame = 0;
-
         private void BlackJackWindow_Load(object sender, EventArgs e)
         {
             //Title
@@ -55,6 +53,7 @@ namespace BlackJackDealerSimulator3000
                 int playerNumber = i + 1;
                 totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
             }
+
         }
 
         //Starting button
@@ -106,8 +105,6 @@ namespace BlackJackDealerSimulator3000
 
         private void choosePlayer_Click(object sender, EventArgs e, int totalPlayers)
         {
-            //Set players for the game
-            playersInGame = totalPlayers;
             //Hide choose player button
             var chooseButtons = new[] { choosePlayer1, choosePlayer2, choosePlayer3, choosePlayer4, choosePlayer5 };
             for (int i = 0; i < chooseButtons.Length; i++)
@@ -117,11 +114,17 @@ namespace BlackJackDealerSimulator3000
             //Hide titel
             MainTitle.Hide();
             Deck.Show();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            //Creates the players here
+            int positionY = 0 + 20;
+            int positionX = (this.ClientSize.Width - (100 * (totalPlayers + 1))) / 2;
+            Hand[] PlayerClass = new Hand[totalPlayers];
+            for (int i = 0; i < totalPlayers; i++)
+            {
+                positionX = positionX + 105;
+                PlayerClass[i] = new Hand("Player"+ (i + 1), this);
+                PlayerClass[i].CreatePlayer("Player"+ (i + 1), 100, 180, positionX, positionY);
+            }
         }
     }
 }
