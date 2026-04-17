@@ -70,6 +70,13 @@ namespace BlackJackDealerSimulator3000.Classes
         {
             return cards[position].ToString();
         }
+
+        public Card removeCard()
+        {
+            Card upperCard = cards[0];
+            cards.RemoveAt(0);
+            return upperCard;
+        }
         public void Shuffle()
         {
             Random randomNum = new Random();
