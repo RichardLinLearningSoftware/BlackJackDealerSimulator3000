@@ -38,8 +38,8 @@ namespace BlackJackDealerSimulator3000
             //Deck
             Deck.Left = 0 + (this.ClientSize.Width - Deck.Width - 15);
             Deck.Top = 0 + (this.ClientSize.Height - Deck.Height - 15);
-            //Deck.Text = mainDeck.GetCard(0);
-            Deck.Text = "Deck";
+            Deck.Text = mainDeck.GetCard(0);
+            //Deck.Text = "Deck";
             Deck.Hide();
             //Deck.Text = "Card deck";
 
@@ -55,9 +55,6 @@ namespace BlackJackDealerSimulator3000
                 int playerNumber = i + 1;
                 totalPlayer.Click += (sender, e) => choosePlayer_Click(sender, e, playerNumber);
             }
-
-            String gameState = "start";
-            
         }
 
         //Starting button
@@ -104,7 +101,7 @@ namespace BlackJackDealerSimulator3000
         private void ShuffleDeck(object sender, EventArgs e)
         {
             mainDeck.Shuffle();
-            //Deck.Text = mainDeck.GetCard(0);
+            Deck.Text = mainDeck.GetCard(0);
         }
 
         private void choosePlayer_Click(object sender, EventArgs e, int totalPlayers)
@@ -119,6 +116,7 @@ namespace BlackJackDealerSimulator3000
             }
             //Hide titel
             MainTitle.Hide();
+            Deck.Show();
         }
     }
 }
