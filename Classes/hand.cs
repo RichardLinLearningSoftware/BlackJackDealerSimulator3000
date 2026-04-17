@@ -30,9 +30,9 @@ namespace BlackJackDealerSimulator3000.Classes
         {
             Random random = new Random();
             int randomInt = random.Next(0, 2);
-            if(randomInt == 0)
+            if (randomInt == 0)
             {
-                if(playerState == "stand")
+                if (playerState == "stand")
                 {
                     playerState = "stand";
                     return "I want to Stand again";
@@ -61,13 +61,45 @@ namespace BlackJackDealerSimulator3000.Classes
             // Add click event
             player.Click += (sender, e) =>
             {
-                player.Text = playerName + ": " + StandOrHit();
+                if (playerState != "stand")
+                {
+                    player.Text = playerName + ": " + StandOrHit();
+                    DisplayCard(parent, 5);
+                }
             };
 
             // Add button to the form
             parent.Controls.Add(player);
             player.BringToFront();
         }
+
+        List<Button> createdCard = new List<Button>();
+        public void DisplayCard(Control parent, int totalCards, string text = "empty")
+        {
+            //Removes pre existing displayer cards when the function is called again
+            foreach (var btn in createdCard)
+            {
+                parent.Controls.Remove(btn);
+                btn.Dispose();
+            }
+            createdCard.Clear();
+
+            int positionX = (parent.ClientSize.Width - (100 * (totalCards + 1))) / 2;
+            for (int i = 0; i < totalCards; i++) {
+                positionX = positionX + 105;
+                System.Windows.Forms.Button card = new System.Windows.Forms.Button();
+                // Set properties
+                card.Text = text;
+                card.Location = new System.Drawing.Point(positionX, (parent.ClientSize.Height - 170)/2);
+                card.Size = new System.Drawing.Size(100, 170);
+                card.BackColor = Color.White;
+                // Add button to the form
+                parent.Controls.Add(card);
+                createdCard.Add(card);
+                card.BringToFront();
+            }
+        }
+
         internal void CreatePlayer()
         {
             throw new NotImplementedException();
