@@ -118,5 +118,10 @@ namespace BlackJackDealerSimulator3000
             MainTitle.Hide();
             Deck.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace BlackJackDealerSimulator3000
             MainTitle.ForeColor = Color.White;
             MainTitle.Location = new Point(130, 12);
             MainTitle.Name = "MainTitle";
-            MainTitle.Size = new Size(891, 133);
+            MainTitle.Size = new Size(747, 112);
             MainTitle.TabIndex = 0;
             MainTitle.Text = "BlackJackSimulator";
             // 
