@@ -10,6 +10,11 @@ namespace BlackJackDealerSimulator3000.Classes
         private String playerName;
         ArrayList hand = new ArrayList();
 
+        public Hand(String playerName)
+        {
+            this.playerName = playerName;
+        }
+
         public void AddCard( Card card, bool flipCard = false)
         {
             if (flipCard)
@@ -17,10 +22,6 @@ namespace BlackJackDealerSimulator3000.Classes
                 card.Flip();
             }
             hand.Add(card);
-        }
-        public Hand(String playerName)
-        {
-            this.playerName = playerName;
         }
 
         public string StandOrHit()
